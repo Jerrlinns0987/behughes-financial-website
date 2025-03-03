@@ -1,0 +1,11 @@
+function calculateLoan() {
+    let amount = document.getElementById('loanAmount').value;
+    let interest = document.getElementById('interestRate').value / 100 / 12;
+    let years = document.getElementById('loanTerm').value;
+    let months = years * 12;
+
+    let monthlyPayment = (amount * interest) / (1 - Math.pow(1 + interest, -months));
+
+    document.getElementById('monthlyPayment').innerText = 
+        `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+}
